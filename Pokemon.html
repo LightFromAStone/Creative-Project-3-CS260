@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+    <!-- include our dependency on angular -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0/angular.min.js"></script>
+    <script src="Pokemon.js"></script>
+    <link rel="stylesheet" href="Pokemon.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Simple Pokemon</title>
+</head>
+<body>
+    <!-- BEGIN Main Container -->
+    <div class="container-fluid">
+        <!-- BEGIN ng-controller -->
+        <div ng-app="app" ng-controller="mainCtrl">
+            <div class="jumbotron jumbotron-fluid">
+                <img class="titleImg img-fluid" src="/images/Pokemon.png" alt="Pokemon: simple battle">
+            </div>
+
+            <!-- BEGIN Battle Container -->
+            <form class="container" name="pokemonSelected" ng-submit="startBattle(pokemonSelected)">
+                <div ng-hide="selectorIsHidden" class="ng-hide">
+
+                    <!-- BEGIN Pokemon selection radio buttons -->
+                    <div class="d-flex">
+                        <h2>Choose your Pokemon:</h2>
+                        <div class="form-check-inline">
+                            <label class="form-check-label">
+                                <input type="radio" class="form-check-input" ng-model="pokemonSelected.name" value="Venasaur" ng-click="setMon('Venasaur')">Venasaur
+                                <img src="/images/Venasaur_front.png" alt="Venasaur">
+                            </label>
+                            <label class="form-check-label">
+                                <input type="radio" class="form-check-input" ng-model="pokemonSelected.name" value="Charizard" ng-click="setMon('Charizard')">Charizard
+                                <img src="/images/Charizard_front.png" alt="Charizard">
+                            </label>
+                            <label class="form-check-label">
+                                <input type="radio" class="form-check-input" ng-model="pokemonSelected.name" value="Blastoise" ng-click="setMon('Blastoise')">Blastoise
+                                <img src="/images/Blastoise_front.png" alt="Blastoise">
+                            </label>
+                        </div>
+                    </div>
+                    <!-- END Pokemon selection radio buttons -->
+    
+                    <!-- BEGIN Moveset Selection -->
+                    <h3>Select your moveset:</h3>
+                    <div class="d-flex">
+                            <div class="form-group flex-fill">
+                                <label>Move 1:</label>
+                                <select class="form-control" id="move1" ng-model="pokemonSelected.move1">
+                                    <option ng-repeat="move in moves">{{move}}</option>
+                                </select>
+                            </div>
+        
+                            <div class="form-group flex-fill">
+                                <label>Move 2:</label>
+                                <select class="form-control" id="move2" ng-model="pokemonSelected.move2">
+                                        <option ng-repeat="move in moves">{{move}}</option>
+                                </select>
+                            </div>
+        
+                            <div class="form-group flex-fill">
+                                <label>Move 3:</label>
+                                <select class="form-control" id="move3" ng-model="pokemonSelected.move3">
+                                        <option ng-repeat="move in moves">{{move}}</option>
+                                </select>
+                            </div>
+        
+                            <div class="form-group flex-fill">
+                                <label>Move 4:</label>
+                                <select class="form-control" id="move4" ng-model="pokemonSelected.move4">
+                                        <option ng-repeat="move in moves">{{move}}</option>
+                                </select>
+                            </div>
+                    </div>
+                    <!-- END Moveset Selection -->
+    
+                    <div class="d-flex justify-content-end">
+                            <button id="beginBattle" type="submit">Begin Battle</button>
+                    </div>
+                </div>
+                
+                <!-- BEGIN Battle Section -->
+                <div ng-hide="battleIsHidden" class="ng-hide">
+                    <div class="d-flex justify-content-end">
+
+                        <div class="d-flex flex-column justify-content-center" id="battleStatus">
+                            <div ng-model="pokemonSelected.userHP">Your HP: {{pokemonSelected.userHP}}</div>
+                            <div ng-model="pokemonSelected.opponentHP">Opposing Pokemon's HP: {{pokemonSelected.opponentHP}}</div>
+
+                        </div>
+                        
+                        <div id="userMoves">
+                            <div class="d-flex flex-column">
+                                <div class="flex-fill">
+                                    <button class="userMove">{{pokemonSelected.move1}}</button>
+                                    <button class="userMove">{{pokemonSelected.move2}}</button>
+                                </div>
+                            </div>
+                            <div class="d-flex flex-column">
+                                <div class="flex-fill">
+                                    <button class="userMove">{{pokemonSelected.move3}}</button>
+                                    <button class="userMove">{{pokemonSelected.move4}}</button>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="d-flex" id="battleBackground">
+                            <img id="userPokemonSprite" ng-src="{{userPokemonSprite}}">
+                            <img id="opponentPokemonSprite" ng-src="{{opponentPokemonSprite}}">
+                        </div>
+                    
+                    </div>
+                </div>
+                <!-- END Battle Section -->
+                
+    
+            </form> 
+            <!-- END Battle Container    -->
+        </div> 
+        <!---------- END ng-app ---------->
+    </div>
+    <!---------- END Main Container ---------->
+</body>
+</html>

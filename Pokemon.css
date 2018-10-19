@@ -1,0 +1,65 @@
+.container-fluid {
+    padding: 0;
+}
+
+.jumbotron {
+    background-color: 	#ee1515;
+    text-align: center;
+    padding: 1rem;
+}
+
+.titleImg {
+    display: block;
+    margin: auto;
+}
+
+label {
+    margin: 1rem;
+}
+
+#battleBackground {
+    background-image: url('/images/battle_background.png');
+    background-repeat: no-repeat;
+    height:238px;
+    width: 400px;
+}
+
+#userPokemonSprite {
+    height: 160px;
+    width: 160px;
+    margin-top: 5rem;
+    margin-left: 2rem;
+}
+
+#opponentPokemonSprite {
+    height: 96px;
+    width: 96px;
+    margin-top: 4.5rem;
+    margin-left: 4rem;
+}
+
+#userMoves {
+    height: 238px;
+    width: 400px;
+}
+
+.userMove {
+    height: 100px;
+    width: 180px;
+    margin: 5px;
+}
+
+#battleStatus {
+    margin-right: 3rem;
+}
+
+button, button:focus, button:active {
+    border-radius: 2rem;
+    outline: none;
+    padding: 0.35rem;
+    font-size: 0.75rem;
+}
+
+button:hover {
+    color: red;
+}
