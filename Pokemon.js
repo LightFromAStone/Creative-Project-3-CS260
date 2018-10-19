@@ -102,24 +102,24 @@ angular.module("app", [])
                     console.log(PokemonList[i].name);
                 }
                 $scope.pokemonSelected.userHP = UsersPokemon.HP;
-                if (pokemonSelected.name == 'Venasaur') { $scope.userPokemonSprite = '/images/Venasaur_back.png'; }
-                else if (pokemonSelected.name == 'Charizard') { $scope.userPokemonSprite = '/images/Charizard_back.png'; }
-                else { $scope.userPokemonSprite = '/images/Blastoise_back.png'; }
+                if (pokemonSelected.name == 'Venasaur') { $scope.userPokemonSprite = 'images/Venasaur_back.png'; }
+                else if (pokemonSelected.name == 'Charizard') { $scope.userPokemonSprite = 'images/Charizard_back.png'; }
+                else { $scope.userPokemonSprite = 'images/Blastoise_back.png'; }
 
                 var opposingPoke = getRandInt(1, 3);
                 if (opposingPoke == 1) 
                 {
-                    $scope.opponentPokemonSprite = '/images/Venasaur_front.png'; 
+                    $scope.opponentPokemonSprite = 'images/Venasaur_front.png'; 
                     OpposingPokemon = PokemonList[opposingPoke - 1];
                 }
                 else if (opposingPoke == 2) 
                 {
-                    $scope.opponentPokemonSprite = '/images/Charizard_front.png';
+                    $scope.opponentPokemonSprite = 'images/Charizard_front.png';
                     OpposingPokemon = PokemonList[opposingPoke - 1];
                 }
                 else 
                 {
-                    $scope.opponentPokemonSprite = '/images/Blastoise_front.png';
+                    $scope.opponentPokemonSprite = 'images/Blastoise_front.png';
                     OpposingPokemon = PokemonList[2];
                 }
                 $scope.pokemonSelected.opponentHP = OpposingPokemon.HP;
